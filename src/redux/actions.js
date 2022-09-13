@@ -1,5 +1,5 @@
 
-
+import data from "../data.json";
 
 export function getVideos(videos) {
     return {
@@ -16,9 +16,10 @@ export function getVideos(videos) {
     };
   }
   export function fetchVideos() {
+
     return (dispatch) => {
-      fetch("data.json")
-        .then((response) => response.json())
-        .then((data) => dispatch(getVideos(data)));
+      dispatch(getVideos(data));
+    
+
     };
   }

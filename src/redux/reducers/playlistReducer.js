@@ -9,7 +9,7 @@ const initialState = {
         return {
           ...state,
           videos: action.payload.videos,
-          // searchForKeyword: action.payload.videos,
+           searchForKeyword: action.payload.videos,
         };
       }
       case "SEARCH_KEYWORD": {

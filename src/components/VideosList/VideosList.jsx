@@ -17,7 +17,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 import "./VideosList.css";
 
 export default function VideosList() {
-  const video = useSelector((state) => state.videos);
+  const video = useSelector((state) => state.searchForKeyword);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchVideos());
@@ -57,7 +57,7 @@ export default function VideosList() {
                           alt=""
                           height="250px"
                           width="250px"
-                        />
+                        ></img>
                         <img
                           src={item.channelThumbnail}
                           alt=""

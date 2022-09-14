@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+   
+  }
+.homepage{
+    width:100vw;
+    
+}
+
+
+.menubar{
+   
+    height:15vh;
+}
+.sidebar{
+    
+    padding-top: 50px;
+}
+.videoslist{
+    
+    padding-top: 50px;
+}

@@ -1,25 +1,30 @@
-
 import data from "../data.json";
 
 export function getVideos(videos) {
-    return {
-      type: "GET_VIDEOS",
-      payload: {
-        videos,
-      },
-    };
-  }
-  export function searchForKeyword(keyword) {
-    return {
-      type: "SEARCH_KEYWORD",
-      payload: keyword,
-    };
-  }
-  export function fetchVideos() {
+  return {
+    type: "GET_VIDEOS",
+    payload: {
+      videos,
+    },
+  };
+}
+export function searchForKeyword(keyword) {
+  return {
+    type: "SEARCH_KEYWORD",
+    payload: keyword,
+  };
+}
+export function fetchVideos() {
+  const updatedData = data.map(item => {
+    item.videoThumbnail = "./assets/videos/" + item.videoThumbnail;
+    item.channelThumbnail = "./assets/channels/" + item.channelThumbnail
+    return item;
+})
+    console.log(updatedData)
 
-    return (dispatch) => {
-      dispatch(getVideos(data));
+  return (dispatch) => {
     
 
-    };
-  }
+    dispatch(getVideos(updatedData));
+  };
+}

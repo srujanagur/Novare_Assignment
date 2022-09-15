@@ -1,7 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-//import { Navbar, Container, Offcanvas, Nav } from 'react-bootstrap'
 
 import { searchForKeyword } from "../../redux/actions";
 import SideBar from "../SideBar/SideBar";

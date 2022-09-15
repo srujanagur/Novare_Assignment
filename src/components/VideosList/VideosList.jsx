@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchVideos } from "../../redux/actions";
 import { useEffect } from "react";
 import ReactPlayer from "react-player";
+import { Link } from "react-router-dom";
 
 import { Container, Row, Col } from "react-bootstrap";
 import {
@@ -65,11 +66,15 @@ export default function VideosList() {
                             src={item.channelThumbnail}
                             alt=""
                           />
-                          <p>
-                            {item.channelName} views: {item.views}
-                          </p>
+                          <Link to={`/videocontent/${item.videoName}`}>
+                            {item.videoName}
+                          </Link>
+                          <p>{item.videoName}</p>
                         </div>
-                        <p>{item.videoName}</p>
+                        <div>
+                          <p>{item.channelName} </p>
+                          <p>views: {item.views}</p>
+                        </div>
                       </CardBody>
                     </Col>
                   ))}

@@ -16,7 +16,7 @@ const initialState = {
         const keyword = action.payload;
         let filteredData = state.videos.filter((video) => {
           return (
-            video.name.common.toLowerCase().search(keyword.toLowerCase()) !== -1
+            video.videoName.toLowerCase().search(keyword.toLowerCase()) !== -1
           );
         });
         return {

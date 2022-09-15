@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchVideos } from "../../redux/actions";
 import { useEffect } from "react";
+import ReactPlayer from "react-player";
 
 import { Container, Row, Col } from "react-bootstrap";
 import {
@@ -48,25 +49,27 @@ export default function VideosList() {
           <Col sm={11}>
             <div>
               <Container>
-                <Row>
+                <Row sm={2}>
                   {video.map((item) => (
                     <Col>
                       <CardBody className="card">
-                        <img
-                          src={item.videoThumbnail}
-                          alt=""
-                          height="250px"
-                          width="250px"
-                        ></img>
-                        <img
-                          src={item.channelThumbnail}
-                          alt=""
-                          height="20px"
-                          width="20px"
+                        <ReactPlayer
+                          controls
+                          url={item.videoId}
+                          width="400px"
+                          height="300px"
                         />
-                        <p>
-                          {item.channelName} views: {item.views}
-                        </p>
+                        <div className="channelinfosection">
+                          <img
+                            className="thumbnail"
+                            src={item.channelThumbnail}
+                            alt=""
+                          />
+                          <p>
+                            {item.channelName} views: {item.views}
+                          </p>
+                        </div>
+                        <p>{item.videoName}</p>
                       </CardBody>
                     </Col>
                   ))}

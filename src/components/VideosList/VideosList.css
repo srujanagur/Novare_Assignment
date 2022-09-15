@@ -4,12 +4,10 @@
 }
 
 .card {
-  height: 250px;
-  width: 250px;
   margin: 2%;
-  text-align: center;
-  text-justify: center;
-  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 .sidebarmenu1 {
   display: flex;
@@ -17,6 +15,15 @@
   gap: 50px;
   width: 100px;
 }
-.listitems {
-  position: static;
+.thumbnail {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.channelinfosection {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  padding: 15px;
 }

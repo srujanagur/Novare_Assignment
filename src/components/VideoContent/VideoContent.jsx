@@ -1,5 +1,5 @@
 import React from "react";
-import ReactPlayer from "react-player";
+// import ReactPlayer from "react-player";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -18,21 +18,29 @@ export default function VideoContent() {
   useEffect(() => {
     dispatch(fetchVideos());
   }, [dispatch]);
-  const videos = useSelector((state) => state.playlistReducer);
+  const videos = useSelector((state) => state.searchForKeyword);
   const { name } = useParams();
+
   const eachVideo = videos.filter((video) => video.videoName === name);
+
+  console.log(
+    eachVideo.map((thing) => {
+      return thing.videoName.trim(0, 5);
+    })
+  );
+
   return (
     <div>
       {eachVideo.map((item) => {
         return (
           <div>
             <div>
-              <ReactPlayer
+              {/* <ReactPlayer
                 controls
                 url={item.videoId}
                 width="640px"
                 height="360px"
-              />
+              /> */}
             </div>
             <div>
               <Button

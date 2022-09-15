@@ -24,6 +24,7 @@ export default function VideosList() {
   useEffect(() => {
     dispatch(fetchVideos());
   }, [dispatch]);
+  console.log("video" + video);
   return (
     <div>
       <Container>

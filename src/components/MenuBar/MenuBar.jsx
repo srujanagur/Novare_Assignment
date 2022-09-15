@@ -1,6 +1,9 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
+import { Button, Form } from "react-bootstrap";
 
 import { searchForKeyword } from "../../redux/actions";
 import SideBar from "../SideBar/SideBar";
@@ -8,6 +11,7 @@ import SideBar from "../SideBar/SideBar";
 import "./MenuBar.css";
 
 export default function MenuBar() {
+  const navigate = useNavigate();
   const keyword = useSelector((state) => state.playlistReducer);
 
   const dispatch = useDispatch();
@@ -69,14 +73,22 @@ export default function MenuBar() {
       </div>
 
       <div className="searchcontent">
-        <p>Search</p>
-        <input
-          className="menubarsearch"
-          type="text"
-          placeholder="Search for video"
-          onChange={handleChange}
-          value={keyword}
-        />
+        <Form className="d-flex">
+          <Form.Control
+            type="search"
+            placeholder="Search"
+            className="menubarsearch"
+            aria-label="Search"
+            onChange={handleChange}
+            value={keyword}
+          />
+          <Button
+            variant="outline-success"
+            onClick={() => navigate(`/VideoContent`)}
+          >
+            Search
+          </Button>
+        </Form>
       </div>
     </div>
   );

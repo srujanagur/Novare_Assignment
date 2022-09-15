@@ -1,19 +1,17 @@
-.menubarcontent{
-    align-items: center;
-    display:flex;
-    flex-wrap: wrap;
-    justify-content:space-between;
-    padding-top: 50px;
-    
+.menubarcontent {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-top: 50px;
 }
-.searchcontent{
-    font-size: 1.2rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content:space-around;
-    
+.searchcontent {
+  font-size: 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
-.menubarsearch{
-    margin-left: 30px;
-    width:500px;
+.menubarsearch {
+  margin-right: 10px;
+  width: 500px;
 }

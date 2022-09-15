@@ -13,7 +13,7 @@ function App() {
         <MenuBar />
         <Routes>
           <Route path="/" element={<Home />}></Route>
-          <Route path="/videocontent" element={<VideoContent />} />
+          <Route path="/videocontent/:name" element={<VideoContent />} />
         </Routes>
       </BrowserRouter>
     </div>

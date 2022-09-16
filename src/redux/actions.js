@@ -15,16 +15,13 @@ export function searchForKeyword(keyword) {
   };
 }
 export function fetchVideos() {
-  const updatedData = data.map(item => {
+  const updatedData = data.map((item) => {
     item.videoThumbnail = "./assets/videos/" + item.videoThumbnail;
-    item.channelThumbnail = "./assets/channels/" + item.channelThumbnail
+    item.channelThumbnail = "./assets/channels/" + item.channelThumbnail;
     return item;
-})
-    console.log(updatedData)
+  });
 
   return (dispatch) => {
-    
-
     dispatch(getVideos(updatedData));
   };
 }

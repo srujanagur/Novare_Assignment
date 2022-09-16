@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 import ListGroup from "react-bootstrap/ListGroup";
 import {
@@ -32,7 +33,10 @@ export default function SideBar() {
         <Offcanvas.Body>
           <ListGroup className="sidebarmenu">
             <ListGroup.Item action variant="light">
-              <BsHouseDoorFill /> {""}Home
+              <Link variant="light" to="/">
+                <BsHouseDoorFill />
+                Home
+              </Link>
             </ListGroup.Item>
             <ListGroup.Item action variant="light">
               <BsCompass />

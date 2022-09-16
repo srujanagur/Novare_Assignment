@@ -2,10 +2,11 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchVideos } from "../../redux/actions";
 import { useEffect } from "react";
-import ReactPlayer from "react-player";
+//import ReactPlayer from "react-player";
 import { Link } from "react-router-dom";
 
 import { Container, Row, Col } from "react-bootstrap";
+
 import {
   BsHouseDoorFill,
   BsCompass,
@@ -24,7 +25,6 @@ export default function VideosList() {
   useEffect(() => {
     dispatch(fetchVideos());
   }, [dispatch]);
-  console.log("video" + video);
   return (
     <div>
       <Container>
@@ -55,21 +55,22 @@ export default function VideosList() {
                   {video.map((item) => (
                     <Col>
                       <CardBody className="card">
-                        <ReactPlayer
-                          controls
-                          url={item.videoId}
-                          width="400px"
-                          height="300px"
-                        />
+                        <Link to={"/videocontent/" + item.id}>
+                          <img
+                            className="videothumbnail"
+                            src={item.videoThumbnail}
+                            alt=""
+                            width="400px"
+                            height="300px"
+                          />
+                        </Link>
                         <div className="channelinfosection">
                           <img
                             className="thumbnail"
                             src={item.channelThumbnail}
                             alt=""
                           />
-                          <Link to={`/videocontent/${item.videoName}`}>
-                            {item.videoName}
-                          </Link>
+
                           <p>{item.videoName}</p>
                         </div>
                         <div>

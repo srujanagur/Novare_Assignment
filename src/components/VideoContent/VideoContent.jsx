@@ -1,13 +1,12 @@
 import React from "react";
-// import ReactPlayer from "react-player";
+import ReactPlayer from "react-player";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+
+import { Button, Form } from "react-bootstrap";
 
 import { fetchVideos } from "../../redux/actions";
-
-import { Button } from "bootstrap";
 
 import "./VideoContent.css";
 
@@ -19,41 +18,37 @@ export default function VideoContent() {
     dispatch(fetchVideos());
   }, [dispatch]);
   const videos = useSelector((state) => state.searchForKeyword);
-  const { name } = useParams();
+  const { vid } = useParams();
 
-  const eachVideo = videos.filter((video) => video.videoName === name);
-
-  console.log(
-    eachVideo.map((thing) => {
-      return thing.videoName.trim(0, 5);
-    })
-  );
+  const eachVideo = videos.filter((video) => video.id == vid);
 
   return (
-    <div>
-      {eachVideo.map((item) => {
-        return (
-          <div>
-            <div>
-              {/* <ReactPlayer
-                controls
-                url={item.videoId}
-                width="640px"
-                height="360px"
-              /> */}
-            </div>
-            <div>
-              <Button
-                className="cartbtn"
-                variant="success"
-                onClick={() => navigate("/")}
-              >
-                Back
-              </Button>
-            </div>
-          </div>
-        );
-      })}
+    <div className="videocontent">
+      <h3>{videos[0].videoName}</h3>
+      <div>
+        <ReactPlayer
+          controls
+          url={eachVideo[0].videoId}
+          width="640px"
+          height="340px"
+        />
+      </div>
+      <div>
+        <h4>{eachVideo[0].channelName}</h4>
+        <h5> Views: {eachVideo[0].views}</h5>
+        <Form className="d-flex">
+          <Button variant="outline-success" onClick={() => navigate(`/`)}>
+            comments
+          </Button>
+          <Form.Control
+            type="text"
+            placeholder="any comments"
+            className="menubarsearch"
+            aria-label="comments"
+            disabled
+          />
+        </Form>
+      </div>
     </div>
   );
 }

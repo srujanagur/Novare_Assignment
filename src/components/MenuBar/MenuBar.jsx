@@ -82,10 +82,7 @@ export default function MenuBar() {
             onChange={handleChange}
             value={keyword}
           />
-          <Button
-            variant="outline-success"
-            onClick={() => navigate(`/VideoContent`)}
-          >
+          <Button variant="outline-success" onClick={() => navigate(`/`)}>
             Search
           </Button>
         </Form>

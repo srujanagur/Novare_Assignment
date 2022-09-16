@@ -1,0 +1,11 @@
+.videocontent {
+  padding: 50px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.menubarsearch {
+  margin-left: 1%;
+  width: 500px;
+}

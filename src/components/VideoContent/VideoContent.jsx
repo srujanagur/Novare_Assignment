@@ -20,7 +20,7 @@ export default function VideoContent() {
   const videos = useSelector((state) => state.searchForKeyword);
   const { vid } = useParams();
 
-  const eachVideo = videos.filter((video) => video.id == vid);
+  const eachVideo = videos.filter((video) => video.id === parseInt(vid));
 
   return (
     <div className="videocontent">
